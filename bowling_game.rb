@@ -12,6 +12,11 @@ class BowlingGame
   end
 
   def roll(pins)
+    if pins > 10
+      raise "Pins should be less than or equal to 10"
+      return
+    end
+
     if @current_frame < MAX_FRAMES
       if @frames.empty? ||
         frame_rolls_size(@frames.last) == MAX_CHANCE_PER_FRAME ||

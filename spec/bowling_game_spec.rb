@@ -20,6 +20,10 @@ RSpec.describe BowlingGame do
         20.times { game.roll(0) }
         expect { game.roll(0) }.to raise_error("Game over! Please start a new game.")
       end
+
+      it 'raises an error if the roll entered is >= 10' do
+        expect { game.roll(11) }.to raise_error("Pins should be less than or equal to 10")
+      end
     end
   end
 
