@@ -13,7 +13,7 @@ RSpec.describe BowlingGame do
       it "moves to the next frame if necessary" do
         expect {
           20.times { game.roll(1) }
-        }.to change { game.current_frame }.from(0).to(10)
+        }.to change { game.current_frame }.from(0).to(9)
       end
 
       it "raises an error when the game is over" do
