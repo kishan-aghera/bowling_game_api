@@ -48,6 +48,28 @@ RSpec.describe BowlingGame do
         expect(game.total_score).to eq(24) # 10 + 4 + 3 + 4 + 3
       end
     end
+
+    context "in last frame " do
+      it "1st ball is strike" do
+        10.times { game.roll(10) }
+        game.roll(1)
+        game.roll(3)
+        expect(game.total_score).to eq(275)
+      end
+
+      it "All balls are strike" do
+        12.times { game.roll(10) }
+        expect(game.total_score).to eq(300)
+      end
+
+      it "first 2 balls is spare" do
+        9.times { game.roll(10) }
+        game.roll(7)
+        game.roll(3)
+        game.roll(5)
+        expect(game.total_score).to eq(272)
+      end
+    end
   end
 
   describe "#last_frame_type" do

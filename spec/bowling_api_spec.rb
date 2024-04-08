@@ -214,7 +214,15 @@ RSpec.describe "Bowling Game API" do
 
         last_response = post_roll(10)
         response_body = JSON.parse(last_response.body)
-        expect(response_body['total_score']).to eq(99)
+        expect(response_body['total_score']).to eq(89)
+
+        last_response = post_roll(10)
+        response_body = JSON.parse(last_response.body)
+        expect(response_body['total_score']).to eq(109)
+
+        last_response = post_roll(10)
+        response_body = JSON.parse(last_response.body)
+        expect(response_body['total_score']).to eq(119)
 
         # 21st frame
         last_response = post_roll(4)
